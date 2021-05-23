@@ -1,0 +1,15 @@
+{
+  "name": "network-protocol",
+  "version": "1.0.0",
+  "description": "study network-protocal",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "http",
+    "https"
+  ],
+  "author": "lyons",
+  "license": "ISC"
+}
