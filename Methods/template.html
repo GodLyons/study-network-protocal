@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- get请求 -->
+  <button id="testGet">测试get方法</button>
+  <!-- post请求 -->
+  <input id="postTest" type="text">
+  <button id="testPost">测试post方法</button>
+  <div id="result"></div>
+</body>
+<script>
+  function getById (id) {
+    return document.getElementById(id)
+  }
+  const resultBox = getById('result')
+  const baseUrl = 'http://localhost:3000'
+  // 测试get方法
+  getById('testGet').addEventListener('click', async function () {
+    const res = await fetch(`${baseUrl}/get`, { method: 'GET'})
+    const resData = await res.text()
+    resultBox.innerText = resData
+  })
+  // 测试post方法
+  getById('testPost').addEventListener('click', async function () {
+    const res = await fetch(`${baseUrl}/post`, {
+      method: 'POST',
+      body: JSON.stringify({
+        value: getById('postTest').value
+      }),
+      headers: {
+        'content-type': 'application/json'
+      }
+    })
+    const resData = await res.text()
+    resultBox.innerText = `输入框的内容为${resData}`
+  })
+</script>
+</html>
